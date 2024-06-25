@@ -13,7 +13,7 @@ void main() {
     // Tap on Preventions button
     await tester.tap(find.text('Preventions'));
     await tester.pumpAndSettle();
-    expect(find.text('Malaria Prevention Tips'), findsOneWidget); // Corrected expectation
+    expect(find.text('Malaria Prevention Tips'), findsOneWidget);
 
     // Tap on Profile button
     await tester.tap(find.text('Profile'));

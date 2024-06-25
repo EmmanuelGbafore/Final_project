@@ -4,34 +4,30 @@ class PreventionTip {
   final String title;
   final String description;
 
-  PreventionTip({required this.title, required this.description});
+  const PreventionTip({required this.title, required this.description}); // Marked constructor as const
 }
 
 class PreventionsScreen extends StatelessWidget {
-  final List<PreventionTip> preventionTips = [
+  final List<PreventionTip> preventionTips = const [
     PreventionTip(
       title: 'Use Mosquito Nets',
-      description:
-          'Sleep under insecticide-treated mosquito nets to prevent mosquito bites.',
+      description: 'Sleep under insecticide-treated mosquito nets to prevent mosquito bites.',
     ),
     PreventionTip(
       title: 'Apply Insect Repellent',
-      description:
-          'Use insect repellent on exposed skin to reduce the risk of mosquito bites.',
+      description: 'Use insect repellent on exposed skin to reduce the risk of mosquito bites.',
     ),
     PreventionTip(
       title: 'Eliminate Mosquito Breeding Sites',
-      description:
-          'Remove standing water around your home to prevent mosquitoes from breeding.',
+      description: 'Remove standing water around your home to prevent mosquitoes from breeding.',
     ),
     PreventionTip(
       title: 'Take Antimalarial Medication',
-      description:
-          'If recommended, take antimalarial medication to prevent malaria infection.',
+      description: 'If recommended, take antimalarial medication to prevent malaria infection.',
     ),
   ];
 
-  PreventionsScreen({Key? key}) : super(key: key);
+  const PreventionsScreen({super.key}); // Marked constructor as const
 
   @override
   Widget build(BuildContext context) {

@@ -8,7 +8,7 @@ class Appointment {
 }
 
 class AppointmentsScreen extends StatefulWidget {
-  const AppointmentsScreen({Key? key}) : super(key: key);
+  const AppointmentsScreen({super.key});
 
   @override
   _AppointmentsScreenState createState() => _AppointmentsScreenState();

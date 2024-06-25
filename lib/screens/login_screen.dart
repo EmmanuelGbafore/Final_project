@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key); // Added Key? key parameter
+  const LoginScreen({Key? key}) : super(key: key);
 
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -13,7 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _login() {
     String email = _emailController.text.trim();
-    String password = _passwordController.text.trim(); // Trim password input
+    String password = _passwordController.text.trim();
 
     if (email.isEmpty || password.isEmpty) {
       showDialog(
@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    // Perform authentication logic here (dummy logic for example)
+    // Perform authentication logic here
     bool isAuthenticated = _authenticate(email, password);
     if (isAuthenticated) {
       Navigator.pushReplacementNamed(context, '/home');
@@ -55,8 +55,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   // Dummy authentication function (replace with your actual authentication logic)
   bool _authenticate(String email, String password) {
-    // Replace this with your actual authentication logic
-    return email == 'test@example.com' && password == 'password';
+    // For testing purposes, accept any email and password combination
+    return true;
   }
 
   @override
@@ -65,36 +65,38 @@ class _LoginScreenState extends State<LoginScreen> {
       appBar: AppBar(
         title: const Text('Login Screen'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              key: const Key('email'), // Using const for better performance
-              controller: _emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-                hintText: 'Enter your email',
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                key: const Key('email'),
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: const InputDecoration(
+                  labelText: 'Email',
+                  hintText: 'Enter your email',
+                ),
               ),
-            ),
-            const SizedBox(height: 16.0),
-            TextField(
-              key: const Key('password'), // Using const for better performance
-              controller: _passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Password',
-                hintText: 'Enter your password',
+              const SizedBox(height: 16.0),
+              TextField(
+                key: const Key('password'),
+                controller: _passwordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  hintText: 'Enter your password',
+                ),
               ),
-            ),
-            const SizedBox(height: 24.0),
-            ElevatedButton(
-              onPressed: _login,
-              child: const Text('Login'), // Using const for better performance
-            ),
-          ],
+              const SizedBox(height: 24.0),
+              ElevatedButton(
+                onPressed: _login,
+                child: const Text('Login'),
+              ),
+            ],
+          ),
         ),
       ),
     );
